@@ -33,10 +33,14 @@ class BoletoBB(BoletoData):
         self.format_nnumero = format_nnumero
 
     def format_nosso_numero(self):
-        return "%s%s" % (
-            self.convenio,
-            self.nosso_numero
-        )
+        if self.format_convenio == 7:
+            return "%s%s" %(self.convenio,self.nosso_numero)
+        else:
+            return "%s%s-%s" % (
+                self.convenio,
+                self.nosso_numero,
+                self.dv_nosso_numero
+            )
 
     # Nosso numero (sem dv) sao 11 digitos
     def _get_nosso_numero(self):
