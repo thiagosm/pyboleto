@@ -60,7 +60,8 @@ class BoletoCaixaSIGCB(BoletoCaixa):
     
     def __init__(self,inicio_nosso_numero='24'):
         super(BoletoCaixaSIGCB, self).__init__()
-        self.inicio_nosso_numero = inicio_nosso_numero # 2=sem registro,  4=emitido pelo proprio cliente
+        self.inicio_nosso_numero = inicio_nosso_numero # 24 - 2=sem registro,  
+                                                       #      4=emitido pelo proprio cliente
         
 
     @property
@@ -90,7 +91,7 @@ class BoletoCaixaSIGCB(BoletoCaixa):
                                    self.nosso_numero[3:6],
                                    self.inicio_nosso_numero[1:2],
                                    self.nosso_numero[6:15])
-        return "%s%s" %(content,self._dv_num(content))                
+        return str("%s%s" %(content,self._dv_num(content)))                
 
     def _dv_num(self, num):
         resto2 = self.modulo11(num.split('-')[0], 9, 1)

@@ -852,7 +852,7 @@ class BoletoPDF(object):
             txt = ""
         return txt
 
-    def _codigoBarraI25(self, num, x, y):
+    def _codigoBarraI25(self, num, x, y, pdfc=None):
         """Imprime Código de barras otimizado para boletos
 
         O código de barras é otmizado para que o comprimeto seja sempre o
@@ -878,5 +878,6 @@ class BoletoPDF(object):
         # comprimento correto
         tracoFino = (tracoFino * comprimento) / bc.width
         bc.__init__(num, barWidth=tracoFino)
-
-        bc.drawOn(self.pdfCanvas, x, y)
+        
+        pdfc_ = pdfc or self.pdfCanvas      # Utilizar Canvas de outro componente
+        bc.drawOn(pdfc_, x, y)

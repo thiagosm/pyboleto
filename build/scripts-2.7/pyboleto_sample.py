@@ -253,31 +253,31 @@ def print_itau():
 
 
 def print_all():
-    #print "Pyboleto version: %s" % pyboleto.__version__
-    #print "----------------------------------"
-    #print "     Printing Example Boletos     "
-    #print "----------------------------------"
-    #
-    #print "Banco do Brasil"
-    #print_bb()
-    #
-    #print "Bradesco"
-    #print_bradesco()
-    #
-    ##print "Itau"
-    ##print_itau()
+    print "Pyboleto version: %s" % pyboleto.__version__
+    print "----------------------------------"
+    print "     Printing Example Boletos     "
+    print "----------------------------------"
+    
+    print "Banco do Brasil"
+    print_bb()
+    
+    print "Bradesco"
+    print_bradesco()
+    
+    #print "Itau"
+    #print_itau()
 
     print "Caixa"
     print_caixa()
 
-    #print "Real"
-    #print_real()
-    #
-    #print "Santander"
-    #print_santander()
-    #
-    #print "----------------------------------"
-    #print "Ok"
+    print "Real"
+    print_real()
+    
+    print "Santander"
+    print_santander()
+    
+    print "----------------------------------"
+    print "Ok"
 
 
 if __name__ == "__main__":

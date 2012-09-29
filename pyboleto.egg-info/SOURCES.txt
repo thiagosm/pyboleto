@@ -34,6 +34,7 @@ pyboleto/media/logo_banrisul.jpg
 pyboleto/media/logo_bb.jpg
 pyboleto/media/logo_itau.jpg
 pyboleto/media/logo_santander.jpg
+tests/.DS_Store
 tests/__init__.py
 tests/alltests.py
 tests/compat.py
