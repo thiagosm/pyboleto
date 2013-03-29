@@ -46,7 +46,41 @@ Agências da Caixa"
     def format_nosso_numero(self):
         return self.nosso_numero + '-' + str(self.dv_nosso_numero)
         
-        
+
+class BoletoCaixa17(BoletoCaixa):
+    """
+       Geração de boleto com nosso número de 17 dígitos + DV.
+    """
+    nosso_numero = custom_property('nosso_numero', 16)
+    agencia_cedente = custom_property('agencia_cedente', 4)
+    conta_cedente = custom_property('conta_cedente', 6)
+
+    def __init__(self,inicio_nosso_numero):
+        super(BoletoCaixa2, self).__init__()
+        self.inicio_nosso_numero = inicio_nosso_numero
+
+    @property
+    def dv_nosso_numero(self):
+        resto2 = self.modulo11('%s%s' %(self.inicio_nosso_numero,self.nosso_numero.split('-')[0]), 9, 1)
+        digito = 11 - resto2
+        if digito == 10 or digito == 11:
+            dv = 0
+        else:
+            dv = digito
+        return dv
+
+    @property
+    def campo_livre(self):
+        content = str("%1s%6s%2s%16s" % (self.inicio_nosso_numero[1],
+                                         self.conta_cedente.split('-')[0],
+                                         self.inicio_nosso_numero,
+                                         self.nosso_numero))
+        return content
+
+    def format_nosso_numero(self):
+        return str('%s%s' %(self.inicio_nosso_numero,self.nosso_numero + '-' + str(self.dv_nosso_numero)))
+
+
         
 class BoletoCaixaSIGCB(BoletoCaixa):
     '''
