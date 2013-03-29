@@ -6,7 +6,7 @@ BANCOS_IMPLEMENTADOS = {
     '237': 'bradesco.BoletoBradesco',
     '104': 'caixa.BoletoCaixa',
     '104sigcb': 'caixa.BoletoCaixaSIGCB',
-    '104_v2': 'caixa.BoletoCaixa17',
+    '104n17': 'caixa.BoletoCaixa17',
     '399': 'hsbc.BoletoHsbc',
     '341': 'itau.BoletoItau',
     '356': 'real.BoletoReal',
