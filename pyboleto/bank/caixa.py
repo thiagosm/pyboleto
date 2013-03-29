@@ -47,16 +47,17 @@ Agências da Caixa"
         return self.nosso_numero + '-' + str(self.dv_nosso_numero)
         
 
-class BoletoCaixa17(BoletoCaixa):
+class BoletoCaixaV2(BoletoCaixa):
     """
-       Geração de boleto com nosso número de 17 dígitos + DV.
+        Gera Dados necessários para criação de boleto para o banco Caixa
+        Economica Federal ( Nosso número maior que 10 dígitos )
     """
     nosso_numero = custom_property('nosso_numero', 16)
     agencia_cedente = custom_property('agencia_cedente', 4)
     conta_cedente = custom_property('conta_cedente', 6)
 
     def __init__(self,inicio_nosso_numero):
-        super(BoletoCaixa2, self).__init__()
+        super(BoletoCaixaV2, self).__init__()
         self.inicio_nosso_numero = inicio_nosso_numero
 
     @property
