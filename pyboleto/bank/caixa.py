@@ -61,7 +61,8 @@ class BoletoCaixa17(BoletoCaixa):
 
     @property
     def dv_nosso_numero(self):
-        resto2 = self.modulo11('%s%s' %(self.inicio_nosso_numero,self.nosso_numero.split('-')[0]), 9, 1)
+        resto2 = self.modulo11('%s%s' %(self.inicio_nosso_numero,
+                                        self.nosso_numero.split('-')[0]), 9, 1)
         digito = 11 - resto2
         if digito == 10 or digito == 11:
             dv = 0
@@ -78,7 +79,8 @@ class BoletoCaixa17(BoletoCaixa):
         return content
 
     def format_nosso_numero(self):
-        return str('%s%s' %(self.inicio_nosso_numero,self.nosso_numero + '-' + str(self.dv_nosso_numero)))
+        return str('%s%s' %(self.inicio_nosso_numero,
+                            self.nosso_numero + '-' + str(self.dv_nosso_numero)))
 
 
         
