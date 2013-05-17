@@ -60,10 +60,6 @@ The best way to learn how to create Boletos using pyboleto is to look at the
 examples at `pyboleto_sample.py`_
 
 
-.. _pyboleto_sample.py: https://github.com/eduardocereto/pyboleto/blob/master/bin/pyboleto_sample.py
-
-.. _pyboleto-installation:
-
 Installation
 ============
 
