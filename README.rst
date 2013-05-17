@@ -35,9 +35,9 @@ For now here's where we are.
  +----------------------+----------------+-----------------+------------+
  | **Banrisul**         | -              | Yes             | Yes        |
  +----------------------+----------------+-----------------+------------+
- | **Bradesco**         | 06, 03         | Yes             | Yes        |
+ | **Bradesco**         | 09, 06, 03     | Yes             | Yes        |
  +----------------------+----------------+-----------------+------------+
- | **Caixa Economica**  | SR , SR SIGCB  | Yes             | No         |
+ | **Caixa Economica**  | SR , SR SIGCB  | Yes             | Yes        |
  +----------------------+----------------+-----------------+------------+
  | **HSBC**             | CNR, CSB       | Yes             | No         |
  +----------------------+----------------+-----------------+------------+
@@ -67,56 +67,15 @@ examples at `pyboleto_sample.py`_
 Installation
 ============
 
-You can install pyboleto either via the Python Package Index (PyPI)
-or from source.
-
-To install using pip,::
-
-    $ pip install pyboleto
-
-To install using easy_install,::
-
-    $ easy_install pyboleto
-
-
-.. _pyboleto-installing-from-source:
-
-Downloading and installing from source
---------------------------------------
-
-Download the latest version of pyboleto from
-http://pypi.python.org/pypi/pyboleto/
-
-You can install it by doing the following,::
-
-    $ tar xvfz pyboleto-0.0.0.tar.gz
-    $ cd pyboleto-0.0.0
-    $ python setup.py build
-    # python setup.py install # as root
-
-.. _pyboleto-installing-from-hg:
-
 Using the development version
 -----------------------------
 
 You can clone the repository by doing the following::
 
-    $ git clone https://github.com/eduardocereto/pyboleto.git
-
-.. _pyboleto-unittests:
-
-Executing unittests
-===================
-
-You need either setuptools or distribute in order to execute the tests. Chances are you already have one or another. You also need `pdftohtml`_.::
-
+    $ git clone https://github.com/thiagosm/pyboleto.git
     $ cd pyboleto
-    $ python setup.py test
+    $ python setup.py install 
 
-
-.. _pdftohtml: http://poppler.freedesktop.org/
-
-.. _pyboleto-license:
 
 License
 =======
