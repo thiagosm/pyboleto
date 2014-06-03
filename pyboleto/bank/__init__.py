@@ -2,6 +2,8 @@
 from ..data import BoletoException
 BANCOS_IMPLEMENTADOS = {
     '001': 'bancodobrasil.BoletoBB',
+    '003': 'santander.BoletoSantander',
+    '004': 'banconordeste.BoletoBancoNordeste',
     '041': 'banrisul.BoletoBanrisul',
     '237': 'bradesco.BoletoBradesco',
     '104': 'caixa.BoletoCaixa',
@@ -10,7 +12,7 @@ BANCOS_IMPLEMENTADOS = {
     '399': 'hsbc.BoletoHsbc',
     '341': 'itau.BoletoItau',
     '356': 'real.BoletoReal',
-    '003': 'santander.BoletoSantander',
+
 }
 
 
