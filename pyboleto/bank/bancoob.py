@@ -46,4 +46,4 @@ class BoletoBancoob(BoletoData):
                                            '%7s%1s' %(self.nosso_numero,
                                                       self.dv_nosso_numero),
                                            self.numero_parcela)
-        return content
+        return str(content)
