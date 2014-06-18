@@ -15,6 +15,8 @@ pyboleto.egg-info/requires.txt
 pyboleto.egg-info/top_level.txt
 pyboleto/bank/__init__.py
 pyboleto/bank/bancodobrasil.py
+pyboleto/bank/banconordeste.py
+pyboleto/bank/bancoob.py
 pyboleto/bank/banrisul.py
 pyboleto/bank/bradesco.py
 pyboleto/bank/caixa.py
@@ -27,6 +29,8 @@ pyboleto/django/admin.py
 pyboleto/django/models.py
 pyboleto/django/views.py
 pyboleto/media/logo_bancobradesco.jpg
+pyboleto/media/logo_banconordeste.jpg
+pyboleto/media/logo_sicoob.jpg
 pyboleto/media/logo_bancocaixa.jpg
 pyboleto/media/logo_bancohsbc.jpg
 pyboleto/media/logo_bancoreal.jpg
