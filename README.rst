@@ -2,9 +2,6 @@
 pyboleto
 ========
 
-.. image:: https://secure.travis-ci.org/eduardocereto/pyboleto.png?branch=master
-   :target: http://travis-ci.org/#!/eduardocereto/pyboleto
-
 .. _pyboleto-synopsis:
 
 pyboleto provides a python class to generate "boletos de cobranca" as these
