@@ -12,7 +12,7 @@ BANCOS_IMPLEMENTADOS = {
     '399': 'hsbc.BoletoHsbc',
     '341': 'itau.BoletoItau',
     '356': 'real.BoletoReal',
-
+    '756': 'bancoob.BoletoBancoob',
 }
 
 

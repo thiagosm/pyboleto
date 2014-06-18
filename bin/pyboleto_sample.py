@@ -7,6 +7,7 @@ from pyboleto.bank.caixa import BoletoCaixa, BoletoCaixaSIGCB
 from pyboleto.bank.bancodobrasil import BoletoBB
 from pyboleto.bank.santander import BoletoSantander
 from pyboleto.bank.banconordeste import BoletoBancoNordeste
+from pyboleto.bank.bancoob import BoletoBancoob
 from pyboleto.pdf import BoletoPDF
 import datetime
 
@@ -305,6 +306,62 @@ def print_banconordeste():
     boleto.save()
 
 
+def print_sicoob():
+    listaDadosBancoob = []
+    for i in range(2):
+        d = BoletoBancoob()
+        d.carteira = '1'       
+        d.cedente = 'CLIENTE TESTE'
+        d.cedente_documento = "102.323.777-01"
+        d.cedente_endereco = "Rua Acme, 123 - Centro - Sao Paulo/SP - CEP: 12345-678"
+        d.agencia_cedente = '4293'
+        d.conta_cedente = '44563'
+        d.convenio = '44563'
+        d.modalidade_cobranca='02'
+        d.numero_parcela='001'
+        d.data_vencimento = datetime.date(2014, 9, 16)
+        d.data_documento = datetime.date(2014, 6, 16)
+        d.data_processamento = datetime.date(2014, 6, 16)
+
+        d.instrucoes = [
+            "- Linha 1",
+            "- Sr Caixa, cobrar multa de 2% após o vencimento",
+            "- Receber até 10 dias após o vencimento",
+            ]
+        d.demonstrativo = [
+            "- Serviço Teste R$ 5,00",
+            "- Total R$ 5,00",
+            ]
+        d.valor_documento = 9.00
+
+        d.nosso_numero = "50149"
+        d.numero_documento = "48958"
+        
+        d.sacado = [
+            "Cliente Teste %d" % (i + 1),
+            "Rua Desconhecida, 00/0000 - Não Sei - Cidade - Cep. 00000-000",
+            ""
+            ]
+        listaDadosBancoob.append(d)
+
+    # Bancoob Formato carne - duas paginas por folha A4
+    boleto = BoletoPDF('boleto-Bancoob-formato-carne-teste.pdf', True)
+    for i in range(0, len(listaDadosBancoob), 2):
+        boleto.drawBoletoCarneDuplo(
+            listaDadosBancoob[i],
+            listaDadosBancoob[i + 1]
+        )
+        boleto.nextPage()
+    boleto.save()
+
+    # Bancoob Formato normal - uma pagina por folha A4
+    boleto = BoletoPDF('boleto-Bancoob-formato-normal-teste.pdf')
+    for i in range(len(listaDadosBancoob)):
+        boleto.drawBoleto(listaDadosBancoob[i])
+        boleto.nextPage()
+    boleto.save()
+
+
 def print_all():
     print "Pyboleto version: %s" % pyboleto.__version__
     print "----------------------------------"
@@ -331,6 +388,10 @@ def print_all():
 
     print "Banco Nordeste"
     print_banconordeste()
+
+    print "Bancoob/Sicoob"
+    print_sicoob()
+
 
     print "----------------------------------"
     print "Ok"

@@ -39,7 +39,9 @@ For now here's where we are.
  +----------------------+----------------+-----------------+------------+
  | **Caixa Economica**  | SR , SR SIGCB  | Yes             | Yes        |
  +----------------------+----------------+-----------------+------------+
- | **Banco Nordeste**   | 51             | Yes             | No         |
+ | **Banco Nordeste**   | 51             | Yes             | Yes        |
+ +----------------------+----------------+-----------------+------------+
+ | **Bancoob (Sicoob)** | 1              | Yes             | No         |
  +----------------------+----------------+-----------------+------------+
  | **HSBC**             | CNR, CSB       | Yes             | No         |
  +----------------------+----------------+-----------------+------------+
@@ -50,16 +52,6 @@ For now here's where we are.
  +----------------------+----------------+-----------------+------------+
  | **Santander**        | 102, 101, 201  | Yes             | No         |
  +----------------------+----------------+-----------------+------------+
-
-.. _pyboleto-docs:
-
-Documentation
-=============
-
-http://packages.python.org/pyboleto/
-
-The best way to learn how to create Boletos using pyboleto is to look at the
-examples at `pyboleto_sample.py`_
 
 
 Installation
