@@ -30,7 +30,7 @@ class BoletoBancoob(BoletoData):
 
         r = t % 11 
         if r in [0,1]:
-            return r
+            return 0
         else:
             return 11-r
 
