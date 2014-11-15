@@ -1,14 +1,14 @@
 Metadata-Version: 1.1
 Name: pyboleto
-Version: 0.2.11
+Version: 0.2.15
 Summary: Python Library to create "boletos de cobrança bancária" for several Brazilian banks
-Home-page: https://github.com/eduardocereto/pyboleto
+Home-page: https://github.com/thiagosm/pyboleto
 Author: Eduardo Cereto Carvalho
 Author-email: eduardocereto@gmail.com
 License: BSD
-Download-URL: http://pypi.python.org/pypi/pyboleto
+Download-URL: https://github.com/thiagosm/pyboleto
 Description: ========
-        pyboleto
+        pyboleto fork
         ========
         
         .. image:: https://secure.travis-ci.org/eduardocereto/pyboleto.png?branch=master
@@ -50,7 +50,7 @@ Description: ========
         +----------------------+----------------+-----------------+------------+
         | **Banco Nordeste**   | 51             | Yes             | Yes        |
         +----------------------+----------------+-----------------+------------+
-        | **Bancoob (Sicoob)** | 1              | Yes             | No         |
+        | **Bancoob (Sicoob)** | 1              | Yes             | Yes        |
         +----------------------+----------------+-----------------+------------+
         | **HSBC**             | CNR, CSB       | Yes             | No         |
         +----------------------+----------------+-----------------+------------+
@@ -62,21 +62,6 @@ Description: ========
         | **Santander**        | 102, 101, 201  | Yes             | No         |
         +----------------------+----------------+-----------------+------------+
         
-        .. _pyboleto-docs:
-        
-        Documentation
-        =============
-        
-        http://packages.python.org/pyboleto/
-        
-        The best way to learn how to create Boletos using pyboleto is to look at the
-        examples at `pyboleto_sample.py`_
-        
-        
-        .. _pyboleto_sample.py: https://github.com/eduardocereto/pyboleto/blob/master/bin/pyboleto_sample.py
-        
-        .. _pyboleto-installation:
-        
         Installation
         ============
         
@@ -85,11 +70,7 @@ Description: ========
         
         To install using pip,::
         
-            $ pip install pyboleto
-        
-        To install using easy_install,::
-        
-            $ easy_install pyboleto
+            $ pip install git+https://github.com/thiagosm/pyboleto.git
         
         
         .. _pyboleto-installing-from-source:
@@ -98,7 +79,7 @@ Description: ========
         --------------------------------------
         
         Download the latest version of pyboleto from
-        http://pypi.python.org/pypi/pyboleto/
+        https://github.com/thiagosm/pyboleto
         
         You can install it by doing the following,::
         
@@ -114,7 +95,7 @@ Description: ========
         
         You can clone the repository by doing the following::
         
-            $ git clone https://github.com/eduardocereto/pyboleto.git
+            $ git clone https://github.com/thiagosm/pyboleto.git
         
         .. _pyboleto-unittests:
         

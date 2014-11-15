@@ -262,7 +262,8 @@ def print_banconordeste():
         d.cedente_documento = "102.323.777-01"
         d.cedente_endereco = "Rua Acme, 123 - Centro - Sao Paulo/SP - CEP: 12345-678"
         d.agencia_cedente = '0226'
-        d.conta_cedente = '0000085-0'
+        d.conta_cedente = '0000085'
+        d.conta_cednte_dv = '0'
 
         d.data_vencimento = datetime.date(2014, 6, 10)
         d.data_documento = datetime.date(2014, 4, 8)
