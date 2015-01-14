@@ -14,6 +14,14 @@ class BoletoBancoNordeste(BoletoData):
         self.codigo_banco = "004"
         self.logo_image = "logo_banconordeste.jpg"
 
+    @property
+    def agencia_conta_cedente(self):
+        return "%s / %s-%s" % (
+            self.agencia_cedente,
+            self.conta_cedente,
+            self.conta_cedente_dv
+        )
+
 
     @property
     def dv_nosso_numero(self):
