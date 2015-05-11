@@ -8,6 +8,9 @@ from pyboleto.bank.bancodobrasil import BoletoBB
 from pyboleto.bank.santander import BoletoSantander
 from pyboleto.bank.banconordeste import BoletoBancoNordeste
 from pyboleto.bank.bancoob import BoletoBancoob
+from pyboleto.bank.bancodaamazonia import BoletoBancodaAmazonia
+from pyboleto.bank.sicredi import BoletoSicredi
+
 from pyboleto.pdf import BoletoPDF
 import datetime
 
@@ -362,6 +365,98 @@ def print_sicoob():
         boleto.nextPage()
     boleto.save()
 
+def print_amazonia():
+    listaDados = []
+    for i in range(2):
+        d = BoletoBancodaAmazonia()
+        d.nosso_numero = '123'
+        d.numero_documento = '123'
+        d.convenio = '0001'
+        d.especie_documento = 'DS'
+        d.carteira = 'CNR'
+        d.cedente = 'Empresa ACME LTDA'
+        d.cedente_documento = "102.323.777-01"
+        d.cedente_endereco = "Rua Acme, 123 - Centro - Sao Paulo/SP - CEP: 12345-678"
+        d.agencia_cedente = '0078'
+        d.conta_cedente = '0000011'
+
+        d.data_vencimento = datetime.date(2008, 6, 27)
+        d.data_documento = datetime.date(2008, 6, 5)
+        d.data_processamento = datetime.date(2008, 6,5)
+
+        d.instrucoes = [
+            "- Linha 1",
+            "- Sr Caixa, cobrar multa de 2% após o vencimento",
+            "- Receber até 10 dias após o vencimento",
+            ]
+        d.demonstrativo = [
+            "- Serviço Teste R$ 5,00",
+            "- Total R$ 5,00",
+            ]
+        d.valor_documento = 15.56
+
+        d.sacado = [
+            "Cliente Teste %d" % (i + 1),
+            "Rua Desconhecida, 00/0000 - Não Sei - Cidade - Cep. 00000-000",
+            ""
+            ]
+        listaDados.append(d)
+
+    boleto = BoletoPDF('boleto-basa-formato-normal-teste.pdf')
+    for i in range(len(listaDados)):
+        boleto.drawBoleto(listaDados[i])
+        boleto.nextPage()
+    boleto.save()
+
+
+def print_sicredi():
+    listaDados = []
+    for i in range(2):
+        d = BoletoSicredi('18','2')
+        d.nosso_numero = '13871'
+        d.numero_documento = '27.030195.10'
+        d.convenio = '0001'
+        d.especie_documento = 'DS'
+        d.carteira = 'A'
+        d.cedente = 'Empresa ACME LTDA'
+        d.cedente_documento = "102.323.777-01"
+        d.cedente_endereco = "Rua Acme, 123 - Centro - Sao Paulo/SP - CEP: 12345-678"
+        d.agencia_cedente = '1234'
+        d.conta_cedente = '12345'
+        d.conta_cedente_dv = '6'
+        
+        d.inicio_nosso_numero='08'
+
+
+        d.data_vencimento = datetime.date(2008, 6, 27)
+        d.data_documento = datetime.date(2008, 6, 5)
+        d.data_processamento = datetime.date(2008, 6,5)
+
+        d.instrucoes = [
+            "- Linha 1",
+            "- Sr Caixa, cobrar multa de 2% após o vencimento",
+            "- Receber até 10 dias após o vencimento",
+            ]
+        d.demonstrativo = [
+            "- Serviço Teste R$ 5,00",
+            "- Total R$ 5,00",
+            ]
+        d.valor_documento = 2950.00
+
+        d.sacado = [
+            "Cliente Teste %d" % (i + 1),
+            "Rua Desconhecida, 00/0000 - Não Sei - Cidade - Cep. 00000-000",
+            ""
+            ]
+        listaDados.append(d)
+
+    boleto = BoletoPDF('boleto-sicredi-formato-normal-teste.pdf')
+    for i in range(len(listaDados)):
+        boleto.drawBoleto(listaDados[i])
+        boleto.nextPage()
+    boleto.save()
+
+
 
 def print_all():
     print "Pyboleto version: %s" % pyboleto.__version__
@@ -393,6 +488,11 @@ def print_all():
     print "Bancoob/Sicoob"
     print_sicoob()
 
+    print "banco da amazonia"
+    print_amazonia()
+
+    print "sicredi"
+    print_sicredi()
 
     print "----------------------------------"
     print "Ok"

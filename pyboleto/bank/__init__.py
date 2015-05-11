@@ -2,16 +2,18 @@
 from ..data import BoletoException
 BANCOS_IMPLEMENTADOS = {
     '001': 'bancodobrasil.BoletoBB',
-    '003': 'santander.BoletoSantander',
+    '003': 'bancodaamazonia.BoletoBancodaAmazonia',
     '004': 'banconordeste.BoletoBancoNordeste',
+    '033': 'santander.BoletoSantander',
     '041': 'banrisul.BoletoBanrisul',
-    '237': 'bradesco.BoletoBradesco',
     '104': 'caixa.BoletoCaixa',
     '104sigcb': 'caixa.BoletoCaixaSIGCB',
     '104v2': 'caixa.BoletoCaixaV2',
-    '399': 'hsbc.BoletoHsbc',
+    '237': 'bradesco.BoletoBradesco',
     '341': 'itau.BoletoItau',
     '356': 'real.BoletoReal',
+    '399': 'hsbc.BoletoHsbc',
+    '748': 'sicredi.BoletoSicredi',
     '756': 'bancoob.BoletoBancoob',
 }
 
