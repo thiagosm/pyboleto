@@ -8,7 +8,6 @@ class BoletoSicredi(BoletoData):
     agencia_cedente = custom_property('agencia_cedente', 4)
     conta_cedente = custom_property('conta_cedente', 5)
     conta_cedente_dv = custom_property('conta_cedente_dv', 1)
-    convenio = custom_property('convenio', 4)
     posto = custom_property('posto',2)
 
     def __init__(self,posto='18',byte_idt='2',tipo_cobranca='3',tipo_carteira='1'):
@@ -26,14 +25,6 @@ class BoletoSicredi(BoletoData):
         self.tipo_cobranca = tipo_cobranca  # SICREDI
         self.tipo_carteira = tipo_carteira  # Carteira simples
         self.posto = posto
-
-
-    @property
-    def agencia_conta_cedente(self):
-        return "%s.%s.%s" % (
-            self.agencia_cedente,
-            self.posto,
-            self.conta_cedente)
 
     def format_nosso_numero(self):
         return '%2s/%1s%5s-%1s' %(self.inicio_nosso_numero,
@@ -91,7 +82,7 @@ class BoletoSicredi(BoletoData):
     def calculate_dv_barcode(self, line):
         resto2 = self.modulo11(line, 9, 1)
         digito = 11 - resto2
-        if digito in [0, 1, 10,11]:
+        if digito <= 1 or digito >= 10:
             dv = 1
         else:
             dv = digito
