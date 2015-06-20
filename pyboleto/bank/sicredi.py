@@ -7,10 +7,9 @@ class BoletoSicredi(BoletoData):
     nosso_numero = custom_property('nosso_numero', 5)
     agencia_cedente = custom_property('agencia_cedente', 4)
     conta_cedente = custom_property('conta_cedente', 5)
-    conta_cedente_dv = custom_property('conta_cedente_dv', 1)
     posto = custom_property('posto',2)
 
-    def __init__(self,posto='18',byte_idt='2',tipo_cobranca='3',tipo_carteira='1'):
+    def __init__(self,posto,byte_idt='2',tipo_cobranca='3',tipo_carteira='1'):
         super(BoletoSicredi, self).__init__()
 
         self.codigo_banco = "748"
@@ -22,7 +21,7 @@ class BoletoSicredi(BoletoData):
         if not self.inicio_nosso_numero:
             self.inicio_nosso_numero = date.today().strftime('%y')
 
-        self.tipo_cobranca = tipo_cobranca  # SICREDI
+        self.tipo_cobranca = tipo_cobranca  # SICREDI ( 1 = com registro )
         self.tipo_carteira = tipo_carteira  # Carteira simples
         self.posto = posto
 
@@ -35,10 +34,12 @@ class BoletoSicredi(BoletoData):
 
     @property
     def dv_nosso_numero(self):
-        _nn = '%s%s%s%s' %(self.agencia_cedente,
-                           self.posto,
-                           self.conta_cedente,
-                           self.nosso_numero)
+        _nn = '%s%s%s%s%s%s' %(self.agencia_cedente,
+                               self.posto,
+                               self.conta_cedente,
+                               self.inicio_nosso_numero,
+                               self.byte_idt,
+                               self.nosso_numero)
 
         resto2 = self.modulo11(_nn, 9, 1)
         digito = 11 - resto2
@@ -52,10 +53,10 @@ class BoletoSicredi(BoletoData):
 
     @property
     def agencia_conta_cedente(self):
-        return "%s / %s-%s" % (
+        return "%s.%s.%s" % (
             self.agencia_cedente,
-            self.conta_cedente,
-            self.conta_cedente_dv)
+            self.posto,
+            self.conta_cedente)
 
     def _dv_num(self, num):
         resto2 = self.modulo11(num, 9, 1)
@@ -77,14 +78,4 @@ class BoletoSicredi(BoletoData):
                                                    self.posto,
                                                    self.conta_cedente)
         return str("%s%s" %(content,self._dv_num(content)))
-
-
-    def calculate_dv_barcode(self, line):
-        resto2 = self.modulo11(line, 9, 1)
-        digito = 11 - resto2
-        if digito <= 1 or digito >= 10:
-            dv = 1
-        else:
-            dv = digito
-        return dv
 

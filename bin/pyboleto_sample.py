@@ -412,12 +412,11 @@ def print_amazonia():
 def print_sicredi():
     listaDados = []
     for i in range(2):
-        d = BoletoSicredi('18','2')
+        d = BoletoSicredi('06','5','1')
         d.nosso_numero = '13871'
-        d.numero_documento = '27.030195.10'
-        d.convenio = '0001'
+        d.numero_documento = '2700'
         d.especie_documento = 'DS'
-        d.carteira = 'A'
+        d.carteira = '1'
         d.cedente = 'Empresa ACME LTDA'
         d.cedente_documento = "102.323.777-01"
         d.cedente_endereco = "Rua Acme, 123 - Centro - Sao Paulo/SP - CEP: 12345-678"
