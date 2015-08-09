@@ -51,6 +51,10 @@ class BoletoCaixaV2(BoletoCaixa):
     """
         Gera Dados necessários para criação de boleto para o banco Caixa
         Economica Federal ( Nosso número maior que 10 dígitos )
+        Modelo SINCO
+
+        Inicio nosso numero começar entre 90 a 99
+
     """
     nosso_numero = custom_property('nosso_numero', 16)
     agencia_cedente = custom_property('agencia_cedente', 4)
@@ -59,6 +63,8 @@ class BoletoCaixaV2(BoletoCaixa):
     def __init__(self,inicio_nosso_numero):
         super(BoletoCaixaV2, self).__init__()
         self.inicio_nosso_numero = inicio_nosso_numero
+        self.campo_fixo = '1'
+
 
     @property
     def dv_nosso_numero(self):
@@ -73,7 +79,7 @@ class BoletoCaixaV2(BoletoCaixa):
 
     @property
     def campo_livre(self):
-        content = str("%1s%6s%2s%16s" % (self.inicio_nosso_numero[1],
+        content = str("%1s%6s%2s%16s" % (self.campo_fixo,
                                          self.conta_cedente.split('-')[0],
                                          self.inicio_nosso_numero,
                                          self.nosso_numero))

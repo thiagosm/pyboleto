@@ -1,8 +1,6 @@
 # -*- coding: utf-8
 from ..data import BoletoData, custom_property
 
-### CAUTION - NÃO TESTADO ###
-
 
 class BoletoItau(BoletoData):
     '''Implementa Boleto Itaú
