@@ -19,6 +19,10 @@ class BoletoBancoob(BoletoData):
         self.numero_parcela = '001'
 
     @property
+    def agencia_conta_cedente(self):
+        return "%s/%s" % (self.agencia_cedente, self.convenio)
+
+    @property
     def dv_nosso_numero(self):
         _c = '319731973197319731973'
         _d = '%4s%10s%7s' %(self.agencia_cedente,
