@@ -22,7 +22,7 @@ class BoletoBancoob(BoletoData):
     def dv_nosso_numero(self):
         _c = '319731973197319731973'
         _d = '%4s%10s%7s' %(self.agencia_cedente,
-                            self.conta_cedente.zfill(10),
+                            self.convenio.zfill(10),
                             self.nosso_numero)
         t = 0
         for i in range(len(_c)):
