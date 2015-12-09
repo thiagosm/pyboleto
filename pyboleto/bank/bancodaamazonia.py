@@ -46,7 +46,7 @@ class BoletoBancodaAmazonia(BoletoData):
             if self.data_vencimento:
                 venc_ddmmyy = self.data_vencimento.strftime('%d%m%y')  
             content = "%4s%7s%6s%7s%1s" % (self.agencia_cedente.zfill(4),
-                                         self.nosso_numero.zfill(7),
+                                         self.nosso_numero[-7:].zfill(7),
                                          venc_ddmmyy,
                                          '0000000',
                                          self.indicador_sistema)
