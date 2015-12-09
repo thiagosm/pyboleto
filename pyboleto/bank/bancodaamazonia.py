@@ -33,8 +33,21 @@ class BoletoBancodaAmazonia(BoletoData):
 
     @property
     def campo_livre(self):
-        content = "%4s%4s%16s%1s" % (self.agencia_cedente.zfill(4),
-                                     self.convenio.zfill(4),
-                                     self.nosso_numero.zfill(16),
-                                     self.indicador_sistema)
+        content = ""
+        # Boleto sem registro
+        if self.indicador_sistema == '8':
+            content = "%4s%4s%16s%1s" % (self.agencia_cedente.zfill(4),
+                                         self.convenio.zfill(4),
+                                         self.nosso_numero.zfill(16),
+                                         self.indicador_sistema)
+        # Boleto com registro
+        elif self.indicador_sistema == '0':
+            venc_ddmmyy = '000000'
+            if self.data_vencimento:
+                venc_ddmmyy = self.data_vencimento.strftime('%d%m%y')  
+            content = "%4s%7s%6s%7s%1s" % (self.agencia_cedente.zfill(4),
+                                         self.nosso_numero.zfill(7),
+                                         venc_ddmmyy,
+                                         '0000000',
+                                         self.indicador_sistema)
         return str(content)
