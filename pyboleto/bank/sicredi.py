@@ -25,6 +25,11 @@ class BoletoSicredi(BoletoData):
         self.tipo_carteira = tipo_carteira  # Carteira simples
         self.posto = posto
 
+
+    @property
+    def codigo_dv_banco(self):
+        return "%s-X" % (self.codigo_banco)
+
     def format_nosso_numero(self):
         return '%2s/%1s%5s-%1s' %(self.inicio_nosso_numero,
                                  self.byte_idt,
