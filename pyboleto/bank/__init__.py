@@ -7,6 +7,7 @@ BANCOS_IMPLEMENTADOS = {
     '033': 'santander.BoletoSantander',
     '041': 'banrisul.BoletoBanrisul',
     '104': 'caixa.BoletoCaixa',
+    '099': 'pagfacil.BoletoPagFacil',
     '104sigcb': 'caixa.BoletoCaixaSIGCB',
     '104v2': 'caixa.BoletoCaixaV2',
     '237': 'bradesco.BoletoBradesco',
