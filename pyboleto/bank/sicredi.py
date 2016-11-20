@@ -93,7 +93,7 @@ class BoletoUnicredi(BoletoSicredi):
 
         self.codigo_banco = "748"
         self.logo_image = "logo_unicredi.jpg"
-        self.carteira = '1'
+        self.carteira = 'SR'
         # Byte de Identificação do cedente 1 - Cooperativa; 2 a 9 - Cedente
         self.byte_idt = byte_idt
 
