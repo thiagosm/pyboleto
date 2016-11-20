@@ -89,7 +89,7 @@ class BoletoSicredi(BoletoData):
 class BoletoUnicredi(BoletoSicredi):
 
     def __init__(self,posto,byte_idt='2',tipo_cobranca='3',tipo_carteira='1'):
-        super(BoletoUnicredi, self).__init__()
+        super(BoletoUnicredi, self).__init__(posto,byte_idt,tipo_cobranca,tipo_carteira)
 
         self.codigo_banco = "748"
         self.logo_image = "logo_unicredi.jpg"
