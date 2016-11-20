@@ -84,3 +84,23 @@ class BoletoSicredi(BoletoData):
                                                    self.conta_cedente)
         return str("%s%s" %(content,self._dv_num(content)))
 
+
+
+class BoletoUnicredi(BoletoSicredi):
+
+    def __init__(self,posto,byte_idt='2',tipo_cobranca='3',tipo_carteira='1'):
+        super(BoletoUnicredi, self).__init__()
+
+        self.codigo_banco = "748"
+        self.logo_image = "logo_unicredi.jpg"
+        self.carteira = '1'
+        # Byte de Identificação do cedente 1 - Cooperativa; 2 a 9 - Cedente
+        self.byte_idt = byte_idt
+
+        if not self.inicio_nosso_numero:
+            self.inicio_nosso_numero = date.today().strftime('%y')
+
+        self.tipo_cobranca = tipo_cobranca  # SICREDI ( 1 = com registro )
+        self.tipo_carteira = tipo_carteira  # Carteira simples
+        self.posto = posto
+
