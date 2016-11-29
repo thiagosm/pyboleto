@@ -2,7 +2,7 @@
 from ..data import BoletoData, custom_property
 
 
-class BoletoBancoob(BoletoData):
+class BoletoSicoob(BoletoData):
     """
       Boleto Sicoob
     """

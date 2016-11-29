@@ -16,7 +16,7 @@ BANCOS_IMPLEMENTADOS = {
     '399': 'hsbc.BoletoHsbc',
     '748': 'sicredi.BoletoSicredi',
     '748unicredi': 'sicredi.BoletoUnicredi',
-    '756': 'bancoob.BoletoBancoob',
+    '756': 'sicoob.BoletoSicoob',
 }
 
 
