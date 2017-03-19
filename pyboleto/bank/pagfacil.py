@@ -69,7 +69,7 @@ class BoletoPagFacil(BoletoData):
                                      self.carteira[0],
                                      str(int(Decimal(self.valor_documento)*100)).zfill(12),
                                      self.data_vencimento.strftime("%d%m%Y"),
-                                     self.format_nosso_numero()))
+                                     self.format_nosso_numero().replace('-','')))
         dv = self.calcula_dv(num)
         barcode = num[:4] + str(dv) + num[4:]
         return barcode
