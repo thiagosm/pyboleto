@@ -26,7 +26,7 @@ class BoletoPagFacil(BoletoData):
         self.ano = date.today().strftime("%Y")
 
     def format_nosso_numero(self):
-        return "%6s%6s%4s%1s" % (
+        return "%6s%6s%4s-%1s" % (
             self.convenio.zfill(6),
             self.nosso_numero.zfill(6),
             self.ano,
