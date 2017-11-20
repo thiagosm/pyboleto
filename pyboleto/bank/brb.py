@@ -57,7 +57,7 @@ class BoletoBrb(BoletoData):
         chave = "000%3s%7s%1s%6s%3s" %(self.agencia_cedente.zfill(3),
                                        self.conta_cedente.zfill(7),
                                        self.modalidade_cobranca,
-                                       self.nosso_numero.zfill(6)
+                                       self.nosso_numero.zfill(6),
                                        self.codigo_banco)
         d_chave = self.modulo10(chave)
         d1,d2 = self.dv_campo_livre(chave,d_chave)
