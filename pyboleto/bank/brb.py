@@ -35,7 +35,7 @@ class BoletoBrb(BoletoData):
                               self.conta_cedente.zfill(7))
 
     def format_nosso_numero(self):
-        return self.campo_livre()[12:]
+        return self.campo_livre[12:]
 
     def dv_campo_livre(self,chave,d1):
         modulo = self.modulo11('%s%s' %(str(chave),str(d1)), 7, 1)
