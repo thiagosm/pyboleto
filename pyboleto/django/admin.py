@@ -1,12 +1,16 @@
 # -*- coding: utf-8 -*-
-from StringIO import StringIO
+try:
+    from StringIO import StringIO
+except ImportError:
+    from io import StringIO
+
 from datetime import date
 
 from django.http import HttpResponse
 from django.contrib import admin
 
-from .models import Boleto
-from ..pdf import BoletoPDF
+from pyboleto.django.models import Boleto
+from pyboleto.pdf import BoletoPDF
 
 
 def print_boletos(modeladmin, request, queryset):
@@ -21,7 +25,7 @@ def print_boletos(modeladmin, request, queryset):
 
     pdf_file = buffer.getvalue()
 
-    response = HttpResponse(mimetype='application/pdf')
+    response = HttpResponse()
     response['Content-Disposition'] = 'attachment; filename=%s' % (
         u'boletos_%s.pdf' % (
             date.today().strftime('%Y%m%d'),

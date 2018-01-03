@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
-from ..data import BoletoData, custom_property
+from ..data import BoletoData, CustomProperty
 
 
 class BoletoSicoob(BoletoData):
     """
       Boleto Sicoob
     """
-    agencia_cedente = custom_property('agencia_cedente', 4)
-    conta_cedente = custom_property('conta_cedente', 8)
-    nosso_numero = custom_property('nosso_numero', 7)
-    convenio = custom_property('convenio', 7)
+    agencia_cedente = CustomProperty('agencia_cedente', 4)
+    conta_cedente = CustomProperty('conta_cedente', 8)
+    nosso_numero = CustomProperty('nosso_numero', 7)
+    convenio = CustomProperty('convenio', 7)
 
     def __init__(self):
         BoletoData.__init__(self)

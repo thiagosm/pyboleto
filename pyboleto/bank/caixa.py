@@ -1,5 +1,5 @@
 #-*- coding: utf-8 -*-
-from ..data import BoletoData, custom_property
+from ..data import BoletoData, CustomProperty
 
 
 class BoletoCaixa(BoletoData):
@@ -9,12 +9,12 @@ class BoletoCaixa(BoletoData):
 
     '''
 
-    conta_cedente = custom_property('conta_cedente', 11)
+    conta_cedente = CustomProperty('conta_cedente', 11)
     '''
         Este numero tem o inicio fixo
         Carteira SR: 80, 81 ou 82
     '''
-    nosso_numero = custom_property('nosso_numero', 10)
+    nosso_numero = CustomProperty('nosso_numero', 10)
 
     def __init__(self):
         super(BoletoCaixa, self).__init__()
@@ -54,9 +54,9 @@ class BoletoCaixaV2(BoletoCaixa):
         Inicio nosso numero começar entre 90 a 99
 
     """
-    nosso_numero = custom_property('nosso_numero', 16)
-    agencia_cedente = custom_property('agencia_cedente', 4)
-    conta_cedente = custom_property('conta_cedente', 6)
+    nosso_numero = CustomProperty('nosso_numero', 16)
+    agencia_cedente = CustomProperty('agencia_cedente', 4)
+    conta_cedente = CustomProperty('conta_cedente', 6)
 
     def __init__(self,inicio_nosso_numero):
         super(BoletoCaixaV2, self).__init__()
@@ -95,9 +95,9 @@ class BoletoCaixaSIGCB(BoletoCaixa):
         Economica Federal - SIGCB
     '''
     
-    nosso_numero = custom_property('nosso_numero', 15)
-    agencia_cedente = custom_property('agencia_cedente', 4)
-    conta_cedente = custom_property('conta_cedente', 6)
+    nosso_numero = CustomProperty('nosso_numero', 15)
+    agencia_cedente = CustomProperty('agencia_cedente', 4)
+    conta_cedente = CustomProperty('conta_cedente', 6)
     
     def __init__(self,inicio_nosso_numero='24'):
         super(BoletoCaixaSIGCB, self).__init__()

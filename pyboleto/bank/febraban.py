@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from ..data import BoletoData, custom_property
+from ..data import BoletoData, CustomProperty
 from decimal import Decimal
 import re 
 
@@ -8,7 +8,7 @@ class BoletoArrecadacao(BoletoData):
     Arrecadação Febraban
 
     """
-    carteira = custom_property('carteira', 1)
+    carteira = CustomProperty('carteira', 1)
 
     def __init__(self):
         BoletoData.__init__(self)

@@ -16,6 +16,7 @@ from decimal import Decimal
 
 class BoletoException(Exception):
     """ Exceções para erros no pyboleto"""
+
     def __init__(self, message):
         Exception.__init__(self, message)
 
@@ -23,7 +24,7 @@ class BoletoException(Exception):
 _EPOCH = datetime.date(1997, 10, 7)
 
 
-class custom_property(object):
+class CustomProperty(object):
     """Função para criar propriedades nos boletos
 
     Cria propriedades com getter, setter e delattr.
@@ -43,6 +44,7 @@ class custom_property(object):
     :type length: integer
 
     """
+
     def __init__(self, name, length):
         self.name = name
         self.length = length
@@ -144,7 +146,7 @@ class BoletoData(object):
         self.cedente_documento = kwargs.pop('cedente_documento', "")
         self.codigo_banco = kwargs.pop('codigo_banco', "")
         self.conta_cedente = kwargs.pop('conta_cedente', "")
-        self.conta_cedente_dv = kwargs.pop('conta_cedente_dv',"")
+        self.conta_cedente_dv = kwargs.pop('conta_cedente_dv', "")
         self.data_documento = kwargs.pop('data_documento', "")
         self.data_processamento = kwargs.pop('data_processamento',
                                              datetime.date.today())
@@ -164,8 +166,8 @@ class BoletoData(object):
         self.sacado_endereco = kwargs.pop('sacado_endereco', "")
         self.sacado_bairro = kwargs.pop('sacado_bairro', "")
         self.sacado_cep = kwargs.pop('sacado_cep', "")
-        self.inicio_nosso_numero = kwargs.pop('inicio_nosso_numero',"")
-        
+        self.inicio_nosso_numero = kwargs.pop('inicio_nosso_numero', "")
+
         if kwargs:
             raise TypeError("Paramêtro(s) desconhecido: %r" % (kwargs, ))
         self._cedente_endereco = None
@@ -197,7 +199,7 @@ class BoletoData(object):
             ('data_vencimento', None, datetime.date),
             ('valor_documento', -1, str),
             ('campo_livre', 25, str),
-            ]:
+        ]:
             value = getattr(self, attr)
             if not isinstance(value, data_type):
                 raise TypeError("%s.%s must be a %s, got %r (type %s)" % (
@@ -206,7 +208,7 @@ class BoletoData(object):
             if data_type == str and length != -1 and len(value) != length:
                 raise ValueError(
                     "%s.%s must have a length of %d, not %r (len: %d)" % (
-                    self.__class__.__name__, attr, length, value, len(value)))
+                        self.__class__.__name__, attr, length, value, len(value)))
 
         due_date_days = (self.data_vencimento - _EPOCH).days
         if not (9999 >= due_date_days >= 0):
@@ -262,21 +264,21 @@ class BoletoData(object):
         """
         return self.nosso_numero
 
-    nosso_numero = custom_property('nosso_numero', 13)
+    nosso_numero = CustomProperty('nosso_numero', 13)
     """Nosso Número geralmente tem 13 posições
 
     Algumas subclasses podem alterar isso dependendo das normas do banco
 
     """
 
-    agencia_cedente = custom_property('agencia_cedente', 4)
+    agencia_cedente = CustomProperty('agencia_cedente', 4)
     """Agência do Cedente geralmente tem 4 posições
 
     Algumas subclasses podem alterar isso dependendo das normas do banco
 
     """
 
-    conta_cedente = custom_property('conta_cedente', 7)
+    conta_cedente = CustomProperty('conta_cedente', 7)
     """Conta do Cedente geralmente tem 7 posições
 
     Algumas subclasses podem alterar isso dependendo das normas do banco
@@ -310,7 +312,7 @@ class BoletoData(object):
         if type(val) is Decimal:
             self._valor = val
         else:
-            self._valor = Decimal(str(val), 2)
+            self._valor = Decimal(str(val))
     valor = property(_get_valor, _set_valor)
     """Valor convertido para :class:`Decimal`.
 
@@ -328,7 +330,7 @@ class BoletoData(object):
         if type(val) is Decimal:
             self._valor_documento = val
         else:
-            self._valor_documento = Decimal(str(val), 2)
+            self._valor_documento = Decimal(str(val))
     valor_documento = property(_get_valor_documento, _set_valor_documento)
     """Valor do Documento convertido para :class:`Decimal`.
 
@@ -341,7 +343,7 @@ class BoletoData(object):
         return self._instrucoes
 
     def _instrucoes_set(self, list_inst):
-        if isinstance(list_inst, basestring):
+        if isinstance(list_inst, str):
             list_inst = list_inst.splitlines()
 
         if len(list_inst) > 7:
@@ -365,7 +367,7 @@ class BoletoData(object):
         return self._demonstrativo
 
     def _demonstrativo_set(self, list_dem):
-        if isinstance(list_dem, basestring):
+        if isinstance(list_dem, str):
             list_dem = list_dem.splitlines()
 
         if len(list_dem) > 12:
@@ -450,7 +452,7 @@ class BoletoData(object):
 
     @staticmethod
     def modulo10(num):
-        if not isinstance(num, basestring):
+        if not isinstance(num, str):
             raise TypeError
         soma = 0
         peso = 2
@@ -474,8 +476,8 @@ class BoletoData(object):
         return modulo10
 
     @staticmethod
-    def modulo11(num, base=9, r=0,**kwargs):
-        if not isinstance(num, basestring):
+    def modulo11(num, base=9, r=0, **kwargs):
+        if not isinstance(num, str):
             raise TypeError
         soma = 0
         fator = 2
@@ -487,22 +489,22 @@ class BoletoData(object):
         if r == 0:
             soma = soma * 10
             digito = soma % 11
-            
+
             # Banco do Brasil
             if kwargs.get('banco') == '001':
                 if digito == 10:
                     digito = 'X'
 
-                # Se linha digitável , nõa deixa passar X ou 0.     
+                # Se linha digitável , nõa deixa passar X ou 0.
                 if len(num) == 43:
                     if digito == 0 or digito == 'X' or digito > 9:
                         digito = 1
 
-            # Demais bancos            
-            else:                
+            # Demais bancos
+            else:
                 if digito == 10:
                     digito = 0
-                    
+
             return digito
         if r == 1:
             resto = soma % 11

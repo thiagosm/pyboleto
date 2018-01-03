@@ -3,7 +3,7 @@
     pyboleto.bank.brb
     ~~~~~~~~~~~~~~~~~~~~~~~
 """
-from ..data import BoletoData, custom_property
+from ..data import BoletoData, CustomProperty
 
 
 class BoletoBrb(BoletoData):
@@ -11,14 +11,14 @@ class BoletoBrb(BoletoData):
         Gera Dados necessários para criação de boleto para o banco BRB
     '''
 
-    nosso_numero = custom_property('nosso_numero', 6)
+    nosso_numero = CustomProperty('nosso_numero', 6)
 
     #: Também chamado de "ponto de venda"
-    agencia_cedente = custom_property('agencia_cedente', 3)
+    agencia_cedente = CustomProperty('agencia_cedente', 3)
 
     #: Também chamdo de código do cedente, se for uma conta de 9 dígitos
     #: ignorar os 2 primeiros
-    conta_cedente = custom_property('conta_cedente', 7)
+    conta_cedente = CustomProperty('conta_cedente', 7)
 
     def __init__(self):
         super(BoletoBrb, self).__init__()

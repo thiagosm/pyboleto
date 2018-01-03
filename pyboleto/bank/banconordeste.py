@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
-from ..data import BoletoData, custom_property
+from ..data import BoletoData, CustomProperty
 
 
 class BoletoBancoNordeste(BoletoData):
-    agencia_cedente = custom_property('agencia_cedente', 4)
-    conta_cedente = custom_property('conta_cedente', 7)
-    conta_cedente_dv = custom_property('conta_cedente_dv',1)
-    nosso_numero = custom_property('nosso_numero', 7)
-    carteira = custom_property('carteira', 2)
+    agencia_cedente = CustomProperty('agencia_cedente', 4)
+    conta_cedente = CustomProperty('conta_cedente', 7)
+    conta_cedente_dv = CustomProperty('conta_cedente_dv',1)
+    nosso_numero = CustomProperty('nosso_numero', 7)
+    carteira = CustomProperty('carteira', 2)
 
     def __init__(self):
         BoletoData.__init__(self)

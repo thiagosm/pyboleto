@@ -1,5 +1,5 @@
 # -*- coding: utf-8
-from ..data import BoletoData, custom_property
+from ..data import BoletoData, CustomProperty
 
 class BoletoBancodaAmazonia(BoletoData):
     '''
@@ -7,10 +7,10 @@ class BoletoBancodaAmazonia(BoletoData):
         Rodapé das instruções com: ARRECADAÇÃO BASA – CONVÊNIO XXXX – AGÊNCIA ZZZ-Z
     '''
 
-    nosso_numero = custom_property('nosso_numero', 16)
-    agencia_cedente = custom_property('agencia_cedente', 4)
-    conta_cedente = custom_property('conta_cedente', 7)
-    convenio = custom_property('convenio', 4)
+    nosso_numero = CustomProperty('nosso_numero', 16)
+    agencia_cedente = CustomProperty('agencia_cedente', 4)
+    conta_cedente = CustomProperty('conta_cedente', 7)
+    convenio = CustomProperty('convenio', 4)
 
     def __init__(self):
         super(BoletoBancodaAmazonia, self).__init__()

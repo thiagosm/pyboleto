@@ -1,13 +1,13 @@
 # -*- coding: utf-8
-from ..data import BoletoData, custom_property
+from ..data import BoletoData, CustomProperty
 from datetime import date
 
 class BoletoSicredi(BoletoData):
 
-    nosso_numero = custom_property('nosso_numero', 5)
-    agencia_cedente = custom_property('agencia_cedente', 4)
-    conta_cedente = custom_property('conta_cedente', 5)
-    posto = custom_property('posto',2)
+    nosso_numero = CustomProperty('nosso_numero', 5)
+    agencia_cedente = CustomProperty('agencia_cedente', 4)
+    conta_cedente = CustomProperty('conta_cedente', 5)
+    posto = CustomProperty('posto',2)
 
     def __init__(self,posto,byte_idt='2',tipo_cobranca='3',tipo_carteira='1'):
         super(BoletoSicredi, self).__init__()

@@ -6,7 +6,7 @@
     Lógica para boletos do pagfacil.
 
 """
-from ..data import BoletoData, custom_property
+from ..data import BoletoData, CustomProperty
 from datetime import date
 from decimal import Decimal
 
@@ -15,8 +15,8 @@ class BoletoPagFacil(BoletoData):
         Gera Dados necessários para criação de boleto para o pagfacil
     '''
 
-    nosso_numero = custom_property('nosso_numero', 6)
-    conta_cedente = custom_property('convenio', 6)
+    nosso_numero = CustomProperty('nosso_numero', 6)
+    conta_cedente = CustomProperty('convenio', 6)
 
     def __init__(self):
         super(BoletoPagFacil, self).__init__()
