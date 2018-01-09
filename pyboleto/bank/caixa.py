@@ -151,7 +151,7 @@ class BoletoCaixaSIGCB(BoletoCaixa):
                                 self.nosso_numero[3:6],
                                 self.nosso_numero[6:15]
                             )
-        nossonumero = '%s-%s' %(nnum,self._dv_num(nnum))
+        nossonumero = '%s-%s' %(nnum,self._dv_num(str(nnum)))
 
         return nossonumero    
         
