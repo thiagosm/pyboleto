@@ -132,7 +132,7 @@ class BoletoCaixaSIGCB(BoletoCaixa):
                                    self.nosso_numero[3:6],
                                    self.inicio_nosso_numero[1:2],
                                    self.nosso_numero[6:15])
-        return str("%s%s" %(content,self._dv_num(content)))                
+        return str("%s%s" %(content,self._dv_num(str(content))))                
 
     def _dv_num(self, num):
         resto2 = self.modulo11(num.split('-')[0], 9, 1)
