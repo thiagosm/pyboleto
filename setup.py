@@ -64,7 +64,8 @@ setup(
     platforms='any',
     test_suite='tests.alltests.suite',
     install_requires=[
-        'reportlab'
+        'reportlab',
+        'six==1.10.0'
     ],
     tests_require=[
         'pylint',
