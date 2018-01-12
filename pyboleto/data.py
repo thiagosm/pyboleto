@@ -12,6 +12,7 @@
 """
 import datetime
 from decimal import Decimal
+from six import string_types
 
 
 class BoletoException(Exception):
@@ -343,7 +344,7 @@ class BoletoData(object):
         return self._instrucoes
 
     def _instrucoes_set(self, list_inst):
-        if isinstance(list_inst, str):
+        if isinstance(list_inst, string_types):
             list_inst = list_inst.splitlines()
 
         if len(list_inst) > 7:
@@ -367,7 +368,7 @@ class BoletoData(object):
         return self._demonstrativo
 
     def _demonstrativo_set(self, list_dem):
-        if isinstance(list_dem, str):
+        if isinstance(list_dem, string_types):
             list_dem = list_dem.splitlines()
 
         if len(list_dem) > 12:
@@ -452,7 +453,7 @@ class BoletoData(object):
 
     @staticmethod
     def modulo10(num):
-        if not isinstance(num, str):
+        if not isinstance(num, string_types):
             raise TypeError
         soma = 0
         peso = 2
@@ -477,7 +478,7 @@ class BoletoData(object):
 
     @staticmethod
     def modulo11(num, base=9, r=0, **kwargs):
-        if not isinstance(num, str):
+        if not isinstance(num, string_types):
             raise TypeError
         soma = 0
         fator = 2
