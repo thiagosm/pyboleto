@@ -49,7 +49,7 @@ class BoletoBrb(BoletoData):
             d1 += 1
             if d1 == 10:
                 d1 = 0
-            self.dv_campo_livre(chave,d1)
+            return self.dv_campo_livre(chave,d1)
 
 
     @property
