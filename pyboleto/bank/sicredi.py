@@ -9,7 +9,7 @@ class BoletoSicredi(BoletoData):
     conta_cedente = CustomProperty('conta_cedente', 5)
     posto = CustomProperty('posto',2)
 
-    def __init__(self,posto,byte_idt='2',tipo_cobranca='3',tipo_carteira='1'):
+    def __init__(self,posto,byte_idt='2',tipo_cobranca='1',tipo_carteira='1'):
         super(BoletoSicredi, self).__init__()
 
         self.codigo_banco = "748"
