@@ -212,10 +212,14 @@ class BoletoData(object):
                         self.__class__.__name__, attr, length, value, len(value)))
 
         due_date_days = (self.data_vencimento - _EPOCH).days
+
+        # ajuste fator vencimento superior a 21/02/2025
+        if due_date_days > 9999:
+            due_date_days = (due_date_days-10000) + 1000
+
         if not (9999 >= due_date_days >= 0):
-            raise TypeError(
-                "Invalid date, must be between 1997/07/01 and "
-                "2024/11/15")
+            raise TypeError("Invalid date")
+
         num = "%s%1s%04d%010d%24s" % (self.codigo_banco,
                                       self.moeda,
                                       due_date_days,

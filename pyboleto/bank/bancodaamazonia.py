@@ -18,7 +18,7 @@ class BoletoBancodaAmazonia(BoletoData):
         self.codigo_banco = "003"
         self.logo_image = "logo_bancodaamazonia.jpg"
         self.carteira = 'CNR'
-        self.indicador_sistema = '8'
+        self.indicador_sistema = '0'
 
     def format_nosso_numero(self):
         return self.nosso_numero
