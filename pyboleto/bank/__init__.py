@@ -15,6 +15,7 @@ BANCOS_IMPLEMENTADOS = {
     '341': 'itau.BoletoItau',
     '356': 'real.BoletoReal',
     '399': 'hsbc.BoletoHsbc',
+    '422': 'safra.BoletoSafra',
     '748': 'sicredi.BoletoSicredi',
     '748unicredi': 'sicredi.BoletoUnicredi',
     '756': 'sicoob.BoletoSicoob',
