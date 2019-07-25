@@ -38,7 +38,7 @@ class BoletoUnicred(BoletoData):
     def agencia_conta_cedente(self):
         return "%s / %s-%s" % (
             self.agencia_cedente.zfill(4),
-            self.conta_cedente.zfill(9),self.conta_cedente[-1:])
+            self.conta_cedente[0:-1].zfill(9),self.conta_cedente[-1:])
 
     @property
     def campo_livre(self):
