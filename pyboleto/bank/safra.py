@@ -24,7 +24,7 @@ class BoletoSafra(BoletoData):
     @property
     def dv_nosso_numero(self):
         _c = '98765432'
-        _d = '%8s' %(self.nosso_numero)
+        _d = '%8s' %(self.nosso_numero.zfill(8))
         t = 0
         for i in range(len(_c)):
             t+= int(_d[i]) * int(_c[i])
@@ -43,7 +43,7 @@ class BoletoSafra(BoletoData):
     @property
     def campo_livre(self):
         content = "%1s%5s%9s%8s%1s%1s"  % ('7',
-                                           self.agencia_cedente,,
+                                           self.agencia_cedente,
                                            self.conta_cedente,
                                            self.nosso_numero,
                                            self.dv_nosso_numero,
