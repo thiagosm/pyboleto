@@ -20,7 +20,7 @@ class BoletoSafra(BoletoData):
 
     @property
     def agencia_conta_cedente(self):
-        return "%s/%s" % (self.agencia_cedente, self.conta_cedente)
+        return "%s/%s-%s" % (self.agencia_cedente, self.conta_cedente,self.conta_cedente_dv)
 
     @property
     def dv_nosso_numero(self):
