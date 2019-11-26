@@ -7,7 +7,8 @@ class BoletoSafra(BoletoData):
       Boleto Safra
     """
     agencia_cedente = CustomProperty('agencia_cedente', 5)
-    conta_cedente = CustomProperty('conta_cedente', 9)
+    conta_cedente = CustomProperty('conta_cedente', 8)
+    conta_cedente_dv = CustomProperty('conta_cedente_dv',1)
     nosso_numero = CustomProperty('nosso_numero', 8)
     
 
@@ -42,9 +43,10 @@ class BoletoSafra(BoletoData):
 
     @property
     def campo_livre(self):
-        content = "%1s%5s%9s%8s%1s%1s"  % ('7',
+        content = "%1s%5s%8s%1s%8s%1s%1s"  % ('7',
                                            self.agencia_cedente,
                                            self.conta_cedente,
+                                           self.conta_cedente_dv,
                                            self.nosso_numero,
                                            self.dv_nosso_numero,
                                            self.modalidade_cobranca)
