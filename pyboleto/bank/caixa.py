@@ -99,9 +99,9 @@ class BoletoCaixaSIGCB(BoletoCaixa):
     agencia_cedente = CustomProperty('agencia_cedente', 4)
     conta_cedente = CustomProperty('conta_cedente', 6)
     
-    def __init__(self,inicio_nosso_numero='24'):
+    def __init__(self,inicio_nosso_numero='14'):
         super(BoletoCaixaSIGCB, self).__init__()
-        self.inicio_nosso_numero = inicio_nosso_numero # 24 - 2=sem registro,  
+        self.inicio_nosso_numero = inicio_nosso_numero # 14 - 1=com registro,  
                                                        #      4=emitido pelo proprio cliente
         
 
@@ -156,6 +156,31 @@ class BoletoCaixaSIGCB(BoletoCaixa):
         return nossonumero    
         
 
-                        
+class BoletoCaixaSIGCB2(BoletoCaixaSIGCB):
+    '''
+        SIGCB com codigo beneficiario 7 digitos
+    '''
+    
+    nosso_numero = CustomProperty('nosso_numero', 15)
+    agencia_cedente = CustomProperty('agencia_cedente', 4)
+    conta_cedente = CustomProperty('conta_cedente', 7)
+    
+    @property
+    def agencia_conta_cedente(self):
+        return "%s / %s" % (
+            self.agencia_cedente,
+            self.conta_cedente)
+
+    @property
+    def campo_livre(self):
+        content = "%s%s%s%s%s%s" %(self.conta_cedente,
+                                   self.nosso_numero[:3],
+                                   self.inicio_nosso_numero[0:1],
+                                   self.nosso_numero[3:6],
+                                   self.inicio_nosso_numero[1:2],
+                                   self.nosso_numero[6:15])
+        return str("%s%s" %(content,self._dv_num(str(content))))                
+
+
 
         

@@ -12,6 +12,7 @@ BANCOS_IMPLEMENTADOS = {
     '136': 'unicred.BoletoUnicred',
     '099': 'pagfacil.BoletoPagFacil',
     '104sigcb': 'caixa.BoletoCaixaSIGCB',
+    '104sigcb2': 'caixa.BoletoCaixaSIGCB2',
     '104v2': 'caixa.BoletoCaixaV2',
     '237': 'bradesco.BoletoBradesco',
     '341': 'itau.BoletoItau',
