@@ -8,6 +8,7 @@ BANCOS_IMPLEMENTADOS = {
     '041': 'banrisul.BoletoBanrisul',
     '047': 'banese.BoletoBanese',
     '070': 'brb.BoletoBrb',
+    '077': 'bancointer.BoletoInter',
     '104': 'caixa.BoletoCaixa',
     '136': 'unicred.BoletoUnicred',
     '099': 'pagfacil.BoletoPagFacil',
