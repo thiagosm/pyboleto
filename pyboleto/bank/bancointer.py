@@ -26,7 +26,7 @@ class BoletoInter(BoletoData):
             self.conta_cedente)
 
     def format_nosso_numero(self):
-        return '%s/%s/%s' %(self.agencia_cedente,self.carteira,self.nosso_numero)
+        return self.nosso_numero
 
     @property
     def barcode(self):
