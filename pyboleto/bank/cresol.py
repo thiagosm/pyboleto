@@ -14,7 +14,7 @@ class BoletoCresol(BoletoData):
 
         self.codigo_banco = "133"
         self.logo_image = "logo_cresol.jpg"
-        # self.carteira = '51'
+        self.carteira = 'A'
 
 
     def format_nosso_numero(self):
@@ -42,9 +42,10 @@ class BoletoCresol(BoletoData):
 
     @property
     def campo_livre(self):
-        content = "%4s%8s%11s" % (self.agencia_cedente.zfill(4),
-                                   self.conta_cedente.zfill(8),
+        content = "%4s%9s%11s" % (self.agencia_cedente.zfill(4),
+                                   self.conta_cedente[-9:].zfill(9),
                                    self.format_nosso_numero().replace('-',''))
+
         return str(content)
 
 
