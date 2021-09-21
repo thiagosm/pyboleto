@@ -14,7 +14,7 @@ class BoletoCresol(BoletoData):
 
         self.codigo_banco = "133"
         self.logo_image = "logo_cresol.jpg"
-        self.carteira = '51'
+        # self.carteira = '51'
 
 
     def format_nosso_numero(self):
