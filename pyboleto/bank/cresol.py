@@ -42,8 +42,8 @@ class BoletoCresol(BoletoData):
 
     @property
     def campo_livre(self):
-        content = "%4s%10s%11s" % (self.agencia_cedente.zfill(4),
-                                   self.conta_cedente.zfill(10),
+        content = "%4s%9s%11s" % (self.agencia_cedente.zfill(4),
+                                   self.conta_cedente.zfill(9),
                                    self.format_nosso_numero().replace('-',''))
         return str(content)
 
