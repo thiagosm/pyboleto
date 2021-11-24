@@ -4,50 +4,43 @@ from datetime import date
 
 class BoletoCresol(BoletoData):
 
-    nosso_numero = CustomProperty('nosso_numero', 10)
+    nosso_numero = CustomProperty('nosso_numero', 11)
     agencia_cedente = CustomProperty('agencia_cedente', 4)
-    conta_cedente = CustomProperty('conta_cedente', 10)
-    carteira = CustomProperty('carteira',2)
+    conta_cedente = CustomProperty('conta_cedente', 7)
 
     def __init__(self):
         super(BoletoCresol, self).__init__()
 
         self.codigo_banco = "133"
         self.logo_image = "logo_cresol.jpg"
-        self.carteira = 'A'
+        self.carteira = '09'
 
 
     def format_nosso_numero(self):
-        return '%10s-%1s' %(self.nosso_numero.zfill(11), self.dv_nosso_numero)
-
+        return "%s/%s-%s" % (
+            self.carteira,
+            self.nosso_numero,
+            self.dv_nosso_numero
+        )
 
     @property
     def dv_nosso_numero(self):
-        _nn = self.nosso_numero.zfill(10)
-        resto2 = self.modulo11(_nn, 7, 1)
+        resto2 = self.modulo11('%2s%11s' %(self.carteira, self.nosso_numero), 7, 1)
         digito = 11 - resto2
-
-        if digito > 9:
+        if digito == 10:
+            dv = 'P'
+        elif digito == 11:
             dv = 0
         else:
             dv = digito
         return dv
 
-
-    @property
-    def agencia_conta_cedente(self):
-        return "%s / %s-%s" % (
-            self.agencia_cedente.zfill(4),
-            self.conta_cedente[0:-1].zfill(9),self.conta_cedente[-1:])
-
     @property
     def campo_livre(self):
-        content = "%4s%9s%11s" % (self.agencia_cedente.zfill(4),
-                                   self.conta_cedente[-9:].zfill(9),
-                                   self.format_nosso_numero().replace('-',''))
-
-        return str(content)
-
-
-
-
+        content = "%4s%2s%11s%7s%1s" % (self.agencia_cedente.split('-')[0],
+                                        self.carteira,
+                                        self.nosso_numero,
+                                        self.conta_cedente.split('-')[0],
+                                        '0'
+                                        )
+        return content
