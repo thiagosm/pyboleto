@@ -27,6 +27,7 @@ BANCOS_IMPLEMENTADOS = {
     # '085': 'cecred.BoletoCecred',
     '085': 'ailos.BoletoAilos',
     '133': 'cresol.BoletoCresol',
+    'localgateway': 'localgateway.BoletoLocalGateway',
     'arrecadacao': 'febraban.BoletoArrecadacao',
 }
 
