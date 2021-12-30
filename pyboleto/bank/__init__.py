@@ -25,6 +25,7 @@ BANCOS_IMPLEMENTADOS = {
     '748unicredi': 'sicredi.BoletoUnicredi',
     '756': 'sicoob.BoletoSicoob',
     '085': 'cecred.BoletoCecred',
+    'localgateway': 'localgateway.BoletoLocalGateway',
     'arrecadacao': 'febraban.BoletoArrecadacao',
 }
 
