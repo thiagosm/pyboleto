@@ -12,7 +12,7 @@ class BoletoLocalGateway(BoletoData):
     conta_cedente = CustomProperty('conta_cedente', 8)
 
     def __init__(self):
-        super(BoletoInter, self).__init__()
+        super(BoletoLocalGateway, self).__init__()
 
         self.codigo_banco = "localgateway"
         self.logo_image = ""
