@@ -24,8 +24,9 @@ BANCOS_IMPLEMENTADOS = {
     '748': 'sicredi.BoletoSicredi',
     '748unicredi': 'sicredi.BoletoUnicredi',
     '756': 'sicoob.BoletoSicoob',
-    '085': 'cecred.BoletoCecred',
-    'localgateway': 'localgateway.BoletoLocalGateway',
+    # '085': 'cecred.BoletoCecred',
+    '085': 'ailos.BoletoAilos',
+    '133': 'cresol.BoletoCresol',
     'arrecadacao': 'febraban.BoletoArrecadacao',
 }
 
