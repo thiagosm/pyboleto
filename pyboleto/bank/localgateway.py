@@ -14,7 +14,7 @@ class BoletoLocalGateway(BoletoData):
     def __init__(self):
         super(BoletoLocalGateway, self).__init__()
 
-        self.codigo_banco = "localgateway"
+        self.codigo_banco = "998"
         self.logo_image = ""
         self.carteira = ''
         self.barcode_ = '' # pegar barcode do gateway de pagamento
