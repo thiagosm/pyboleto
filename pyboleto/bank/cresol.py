@@ -18,7 +18,6 @@ class BoletoCresol(BoletoData):
 
     def format_nosso_numero(self):
         return "%s-%s" % (
-            self.carteira,
             self.nosso_numero,
             self.dv_nosso_numero
         )
