@@ -1,6 +1,6 @@
 # -*- coding: utf-8
 from ..data import BoletoData, CustomProperty
-
+import re
 
 class BoletoJuno(BoletoData):
     '''
@@ -28,7 +28,12 @@ class BoletoJuno(BoletoData):
 
     @property
     def barcode(self):
-        return self.barcode_
+        if self.barcode_:
+            return self.barcode_
+
+        elif self.linha_digitavel_:
+            return re.sub(r'(\d{4})(\d{5})\d{1}(\d{10})\d{1}(\d{10})\d{1}(\d{15})', r'\1\5\2\3\4', re.sub(r'[^0-9]', '', self.linha_digitavel_))
+
 
     @property
     def linha_digitavel(self):
