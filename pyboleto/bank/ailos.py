@@ -7,7 +7,7 @@ class BoletoAilos(BoletoData):
     nosso_numero = CustomProperty('nosso_numero', 10)
     agencia_cedente = CustomProperty('agencia_cedente', 4)
     conta_cedente = CustomProperty('conta_cedente', 10)
-    carteira = CustomProperty('carteira',2)
+    carteira = CustomProperty('carteira', 2)
 
     def __init__(self):
         super(BoletoAilos, self).__init__()
@@ -17,9 +17,12 @@ class BoletoAilos(BoletoData):
         self.carteira = '01'
 
 
-    def format_nosso_numero(self):
-        return '%10s-%1s' %(self.nosso_numero.zfill(10),self.dv_nosso_numero)
-
+    def format_nosso_numero(self):        
+        return "%s%s%s" % (
+            str(self.conta_cedente)[-8:].zfill(8),
+            str(self.nosso_numero)[-8:].zfill(8),
+            str(self.dv_nosso_numero)[0]
+        )
 
     @property
     def dv_nosso_numero(self):
