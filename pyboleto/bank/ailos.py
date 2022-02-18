@@ -27,8 +27,8 @@ class BoletoAilos(BoletoData):
 
     @property
     def campo_livre(self):
-        content = "%6s%8s%9s%2s"  % (str(self.convenio).zfill(6),
-                                     str(self.conta_cedente).zfill(8),
-                                     str(self.numero_documento).zfill(9))
+        content = "%6s%8s%9s"  % (str(self.convenio).zfill(6),
+                                  str(self.conta_cedente).zfill(8),
+                                  str(self.numero_documento).zfill(9))
         return str(content)
 
