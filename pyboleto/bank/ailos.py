@@ -16,38 +16,20 @@ class BoletoAilos(BoletoData):
         self.logo_image = "logo_ailos.jpg"
         self.carteira = '01'
 
-
-    def format_nosso_numero(self):        
-        return "%s%s%s" % (
-            str(self.conta_cedente)[-8:].zfill(8),
-            str(self.nosso_numero)[-8:].zfill(8),
-            str(self.dv_nosso_numero)[0]
-        )
-
-    @property
-    def dv_nosso_numero(self):
-        _nn = self.nosso_numero.zfill(10)
-        resto2 = self.modulo11(_nn, 7, 1)
-        digito = 11 - resto2
-
-        if digito > 9:
-            dv = 0
-        else:
-            dv = digito
-        return dv
-
-
     @property
     def agencia_conta_cedente(self):
         return "%s / %s-%s" % (
             self.agencia_cedente.zfill(4),
             self.conta_cedente[0:-1].zfill(9),self.conta_cedente[-1:])
 
+    def format_nosso_numero(self):
+        return "%s%s" % (str(self.conta_cedente).zfill(8),str(self.numero_documento).zfill(9))
+
     @property
     def campo_livre(self):
-        content = "%6s%8s%8s%1s"  % (str(self.convenio).zfill(6),
+        content = "%6s%8s%9s%2s"  % (str(self.convenio).zfill(6),
                                      str(self.conta_cedente).zfill(8),
-                                     str(self.nosso_numero)[-8:].zfill(8),
-                                     str(self.dv_nosso_numero)[0])
+                                     str(self.numero_documento).zfill(9),
+                                     self.carteira)
         return str(content)
 
