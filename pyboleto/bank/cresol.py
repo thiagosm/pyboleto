@@ -24,15 +24,26 @@ class BoletoCresol(BoletoData):
 
     @property
     def dv_nosso_numero(self):
-        resto2 = self.modulo11('%2s%11s' %(self.carteira, self.nosso_numero), 7, 1)
-        digito = 11 - resto2
-        if digito == 10:
-            dv = 'P'
-        elif digito == 11:
+        campo_livre = '%2s%11s' %(self.carteira, self.nosso_numero)
+        
+        _c = '2765432765432'
+        _t = tuple(campo_livre)
+        _z = 0
+
+        for i in range(len(_t)):
+            _z += int(_t[i]) * int(_c[i])
+
+        resto = _z % 11
+        
+        if resto == 0:
             dv = 0
+        elif resto == 1:
+            dv = "P"
         else:
-            dv = digito
+            dv = 11 - resto
+
         return dv
+        
 
     @property
     def campo_livre(self):
