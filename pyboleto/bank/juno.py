@@ -1,5 +1,6 @@
 # -*- coding: utf-8
 from ..data import BoletoData, CustomProperty
+from ..data import BoletoException
 import re
 
 class BoletoJuno(BoletoData):
