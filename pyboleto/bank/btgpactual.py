@@ -21,10 +21,7 @@ class BoletoBtgPactual(BoletoData):
 
     @property
     def agencia_conta_cedente(self):
-        return "%s-208-%s-%s" % (
-            re.sub('[^0-9]','',self.cedente_documento or ''),
-            self.carteira,
-            self.conta_cedente)
+        return self.conta_cedente
 
     def format_nosso_numero(self):
         return self.nosso_numero
