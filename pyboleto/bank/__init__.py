@@ -4,6 +4,7 @@ BANCOS_IMPLEMENTADOS = {
     '001': 'bancodobrasil.BoletoBB',
     '003': 'bancodaamazonia.BoletoBancodaAmazonia',
     '004': 'banconordeste.BoletoBancoNordeste',
+    '208': 'btgpactual.BoletoBtgPactual',
     '033': 'santander.BoletoSantander',
     '041': 'banrisul.BoletoBanrisul',
     '047': 'banese.BoletoBanese',
