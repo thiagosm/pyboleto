@@ -27,6 +27,7 @@ BANCOS_IMPLEMENTADOS = {
     '756': 'sicoob.BoletoSicoob',
     # '085': 'cecred.BoletoCecred',
     '085': 'ailos.BoletoAilos',
+    '218': 'bonsucesso.BoletoBonSucesso',
     '133': 'cresol.BoletoCresol',
     'localgateway': 'localgateway.BoletoLocalGateway',
     'arrecadacao': 'febraban.BoletoArrecadacao',

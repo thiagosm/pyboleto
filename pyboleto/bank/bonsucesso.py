@@ -2,7 +2,7 @@
 from ..data import BoletoData, CustomProperty
 
 
-class BoletoAilos(BoletoData):
+class BoletoBonSucesso(BoletoData):
 
     nosso_numero = CustomProperty('nosso_numero', 9)
     agencia_cedente = CustomProperty('agencia_cedente', 4)
@@ -10,10 +10,10 @@ class BoletoAilos(BoletoData):
     carteira = CustomProperty('carteira', 2)
 
     def __init__(self):
-        super(BoletoAilos, self).__init__()
+        super(BoletoBonSucesso, self).__init__()
 
-        self.codigo_banco = "085"
-        self.logo_image = "logo_ailos.jpg"
+        self.codigo_banco = "218"
+        self.logo_image = "logo_bomsucesso.jpg"
         self.carteira = '01'
 
     @property
