@@ -1,6 +1,6 @@
 # -*- coding: utf-8
 from ..data import BoletoData, CustomProperty
-
+import re
 
 class BoletoBtgPactual(BoletoData):
     '''
@@ -22,7 +22,7 @@ class BoletoBtgPactual(BoletoData):
     @property
     def agencia_conta_cedente(self):
         return "%s-208-%s-%s" % (
-            self.cedente_documento,
+            re.sub('[^0-9]','',self.cedente_documento or ''),
             self.carteira,
             self.conta_cedente)
 
