@@ -11,6 +11,7 @@ BANCOS_IMPLEMENTADOS = {
     '070': 'brb.BoletoBrb',
     '077': 'bancointer.BoletoInter',
     '383': 'juno.BoletoJuno',
+    '364': 'gerencianet.BoletoGerenciaNet',
     '104': 'caixa.BoletoCaixa',
     '136': 'unicred.BoletoUnicred',
     '099': 'pagfacil.BoletoPagFacil',
