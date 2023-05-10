@@ -31,6 +31,7 @@ BANCOS_IMPLEMENTADOS = {
     '218': 'bonsucesso.BoletoBonSucesso',
     '461': 'asaas.Asaas',
     '133': 'cresol.BoletoCresol',
+    '021': 'cresol.BoletoBanestes',
     'localgateway': 'localgateway.BoletoLocalGateway',
     'arrecadacao': 'febraban.BoletoArrecadacao',
 }
