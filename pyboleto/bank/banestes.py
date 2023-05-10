@@ -22,7 +22,7 @@ class BoletoBanestes(BoletoData):
 
         self.codigo_banco = "021"
         self.logo_image = "logo_bancobanestes.jpg"
-        self.carteira = '06'
+        self.carteira = '1'
 
     def format_nosso_numero(self):
         return "%s/%s-%s" % (
