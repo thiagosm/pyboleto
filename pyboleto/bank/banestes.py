@@ -24,7 +24,7 @@ class BoletoBanestes(BoletoData):
         dv1 = self.dv_nosso_numero(nosso_numero_f, '0908070605040302')
         dv2 = self.dv_nosso_numero('%s%s' % (nosso_numero_f, dv1), '100908070605040302')
 
-        return "%s%s%s" % (nosso_numero_f, dv1, dv2)
+        return "%s-%s%s" % (nosso_numero_f, dv1, dv2)
     
     def dv_nosso_numero(self, nosso_numero_f, produto):
         _c = produto
