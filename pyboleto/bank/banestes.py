@@ -21,8 +21,8 @@ class BoletoBanestes(BoletoData):
 
     def format_nosso_numero(self):
         nosso_numero_f = self._nosso_numero_f
-        dv1 = self.get_dv_nosso_numero(nosso_numero_f, '0908070605040302')
-        dv2 = self.get_dv_nosso_numero('%s%s' % (nosso_numero_f, dv1), '100908070605040302')
+        dv1 = self.dv_nosso_numero(nosso_numero_f, '0908070605040302')
+        dv2 = self.dv_nosso_numero('%s%s' % (nosso_numero_f, dv1), '100908070605040302')
 
         return "%s%s%s" % (nosso_numero_f, dv1, dv2)
     
