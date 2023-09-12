@@ -15,6 +15,7 @@ class BoletoUnicred(BoletoData):
         self.codigo_banco = "136"
         self.logo_image = "logo_unicred.jpg"
         self.carteira = '51'
+        self.modulo11_tamanho = 7
 
 
     def format_nosso_numero(self):
@@ -24,7 +25,7 @@ class BoletoUnicred(BoletoData):
     @property
     def dv_nosso_numero(self):
         _nn = self.nosso_numero.zfill(10)
-        resto2 = self.modulo11(_nn, 7, 1)
+        resto2 = self.modulo11(_nn, self.modulo11_tamanho, 1)
         digito = 11 - resto2
 
         if digito > 9:
