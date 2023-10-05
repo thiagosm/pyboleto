@@ -83,6 +83,8 @@ class BoletoBB(BoletoData):
 
     @property
     def campo_livre(self):
+        content = ""
+        
         if self.format_convenio in (7, 8):
             content = "000000%s%s%s" % (self.convenio,
                                          self.nosso_numero,
