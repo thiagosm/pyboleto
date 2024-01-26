@@ -6,7 +6,8 @@ class BoletoBanestes(BoletoData):
 
     nosso_numero = CustomProperty('nosso_numero', 11)
     agencia_cedente = CustomProperty('agencia_cedente', 4)
-    conta_cedente = CustomProperty('conta_cedente', 7)
+    conta_cedente = CustomProperty('conta_cedente', 10)
+    conta_cedente_dv = CustomProperty('conta_cedente_dv', 1)
 
     def __init__(self):
         super(BoletoBanestes, self).__init__()
@@ -14,6 +15,10 @@ class BoletoBanestes(BoletoData):
         self.codigo_banco = "021"
         self.logo_image = "logo_bancobanestes.jpg"
         self.carteira = '1'
+
+    @property
+    def _conta_cedente(self):
+        return "%s%s" % (self.conta_cedente, self.conta_cedente_dv or "")
 
     @property
     def _nosso_numero_f(self):
@@ -49,7 +54,7 @@ class BoletoBanestes(BoletoData):
     def campo_livre(self):
         campo_livre = "%s%s%s%s" % (
             self._nosso_numero_f,
-            str(int(self.conta_cedente[-11:])).zfill(11),
+            str(int(self._conta_cedente[-11:])).zfill(11),
             '4', # com registro
             self.codigo_banco
         )
