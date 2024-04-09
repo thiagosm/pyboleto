@@ -52,11 +52,18 @@ class BoletoSantander(BoletoData):
 
     @property
     def campo_livre(self):
+        nosso_numero = "%s%s" % (str(self.nosso_numero), 
+                                 str(self._dv_nosso_numero()))
+        try:
+            if hasattr(self, 'nosso_numero_semdv'):
+                nosso_numero = nosso_numero.zfill(len(nosso_numero) + 1)
+        except:
+            pass
+
         content = "".join([
                            '9',
                            self.conta_cedente,
-                           self.nosso_numero,
-                           self._dv_nosso_numero(),
+                           nosso_numero,
                            self.ios,
                            self.carteira,
                            ])
