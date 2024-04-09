@@ -56,7 +56,7 @@ class BoletoSantander(BoletoData):
                                  str(self._dv_nosso_numero()))
         try:
             if hasattr(self, 'nosso_numero_semdv'):
-                nosso_numero = nosso_numero.zfill(len(nosso_numero) + 1)
+                nosso_numero = str(self.nosso_numero).ljust(len(self.nosso_numero) + 1, '0')
         except:
             pass
 
